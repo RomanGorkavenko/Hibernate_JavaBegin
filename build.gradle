@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+group = 'ru.javabegin.hibernate'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    // ядро Hibernate
+    implementation 'org.hibernate.orm:hibernate-core:6.2.7.Final'
+
+    // JDBC драйвер
+    implementation 'org.postgresql:postgresql:42.6.0'
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+
+    // кеширование 2-го уровня
+    implementation 'org.hibernate.orm:hibernate-jcache:6.3.1.Final'
+    implementation 'org.ehcache:ehcache:3.10.8'
+
+
+    // логирование
+    implementation 'org.apache.logging.log4j:log4j-api:2.20.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
+
+}
